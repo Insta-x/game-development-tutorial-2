@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://djwtymi72ofe1"]
+
+[ext_resource type="TileSet" uid="uid://4uw5tf33e3ti" path="res://src/levels/tileset.tres" id="1_623xy"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_623xy")
+format = 2
+layer_0/name = "World"
+layer_1/name = "Hazard"
+layer_1/tile_data = PackedInt32Array()
