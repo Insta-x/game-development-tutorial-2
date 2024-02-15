@@ -1,21 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://db2d5k7uw1uxi"]
+[gd_scene load_steps=7 format=3 uid="uid://db2d5k7uw1uxi"]
 
+[ext_resource type="Script" path="res://src/levels/level.gd" id="1_4p0t4"]
 [ext_resource type="PackedScene" uid="uid://djwtymi72ofe1" path="res://src/levels/tile_map.tscn" id="1_c6wno"]
-[ext_resource type="PackedScene" uid="uid://dqe587iq6jj2w" path="res://src/player/player_ship.tscn" id="2_jq0p7"]
+[ext_resource type="PackedScene" uid="uid://cfwoaiscpyknv" path="res://src/levels/end_level.tscn" id="2_6jwgp"]
 [ext_resource type="PackedScene" uid="uid://40pdw73bvqwx" path="res://src/objects/objective_area.tscn" id="3_i8kd2"]
+[ext_resource type="PackedScene" uid="uid://dliirkgxufnts" path="res://src/gui/gui.tscn" id="4_j724l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bwksq"]
 font_size = 30
 font_color = Color(1, 0, 0, 1)
 
-[node name="Level3" type="Node"]
+[node name="Level3" type="Node" node_paths=PackedStringArray("spawn_player_position", "game_gui")]
+script = ExtResource("1_4p0t4")
+next_level_scn = ExtResource("2_6jwgp")
+spawn_player_position = NodePath("GameWorld/PlayerStartMarker2D")
+game_gui = NodePath("GUI")
 
 [node name="GameWorld" type="Node2D" parent="."]
 
 [node name="TileMap" parent="GameWorld" instance=ExtResource("1_c6wno")]
 layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 10, 0, 0, 9, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 0, 0, 196626, 0, 0, 262162, 0, 0, 327698, 0, 0, 393234, 0, 0, 458770, 0, 0, 524306, 0, 0, 589842, 0, 0, 655378, 0, 0, 655377, 0, 0, 655376, 0, 0, 655375, 0, 0, 655374, 0, 0, 655373, 0, 0, 655372, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 589827, 1, 1610612736, 524291, 1, 1610612736, 458755, 1, 1610612736, 393219, 1, 1610612736, 327683, 1, 1610612736, 262147, 1, 1610612736, 262148, 1, 1879048192, 327684, 1, 1879048192, 393220, 1, 1879048192, 458756, 1, 1879048192, 524292, 1, 1879048192, 589828, 1, 1879048192, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 65541, 1, 805306368, 65542, 1, 805306368, 65543, 1, 805306368, 65540, 1, 805306368, 65539, 1, 805306368, 65544, 1, 805306368, 65545, 1, 805306368, 65546, 1, 1610612736, 131082, 1, 1610612736, 196618, 1, 1610612736, 262154, 1, 1610612736, 327690, 1, 1610612736, 393226, 1, 1610612736, 458762, 1, 1610612736, 458761, 1, 0, 458760, 1, 0, 458759, 1, 0, 589837, 1, 1610612736, 524301, 1, 1610612736, 458765, 1, 1610612736, 393229, 1, 1610612736, 393230, 1, 1342177280, 458766, 1, 1342177280, 524302, 1, 1342177280, 589838, 1, 1342177280, 196621, 1, 1610612736, 131085, 1, 1610612736, 65549, 1, 1610612736, 196622, 1, 1342177280, 131086, 1, 1342177280, 65550, 1, 1342177280, 196623, 1, 805306368, 196624, 1, 805306368, 196625, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 65553, 0, 0, 65552, 0, 0, 65551, 0, 0, 327697, 0, 0, 393233, 0, 0, 262161, 0, 0)
 
-[node name="PlayerShip" parent="GameWorld" instance=ExtResource("2_jq0p7")]
+[node name="PlayerStartMarker2D" type="Marker2D" parent="GameWorld"]
 position = Vector2(127, 651)
 
 [node name="ObjectiveArea" parent="GameWorld" instance=ExtResource("3_i8kd2")]
@@ -37,3 +43,9 @@ grow_vertical = 2
 text = "Quite the difficulty SPIKES eh?"
 label_settings = SubResource("LabelSettings_bwksq")
 horizontal_alignment = 1
+
+[node name="GUI" parent="." instance=ExtResource("4_j724l")]
+
+[connection signal="objective_reached" from="GameWorld/ObjectiveArea" to="." method="_on_objective_area_objective_reached"]
+[connection signal="next_level_pressed" from="GUI" to="." method="next_level"]
+[connection signal="restart_pressed" from="GUI" to="." method="restart_level"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfwoaiscpyknv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tu0qe"]
+font_size = 30
+
+[node name="EndLevel" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the end...
+As a reward for reaching the end, here's the entire Bee Movie Script!
+(Nevermind, too much of a hassle. Hope you enjoy the game!)"
+label_settings = SubResource("LabelSettings_tu0qe")
+horizontal_alignment = 1
+vertical_alignment = 1

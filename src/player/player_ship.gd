@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name PlayerShip
+
 
 signal dead()
 
@@ -22,5 +24,5 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	hide()
 	dead.emit()
+	queue_free()
