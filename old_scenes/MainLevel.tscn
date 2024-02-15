@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkr1op4db6va4"]
 
-[ext_resource type="PackedScene" uid="uid://cfooqwwk0d17i" path="res://scenes/StonePlatform.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://ce4byw3a3oq43" path="res://scenes/BlueShip.tscn" id="2"]
-[ext_resource type="Script" path="res://scenes/PlatformBlue.gd" id="3"]
-[ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://cfooqwwk0d17i" path="res://old_scenes/StonePlatform.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://ce4byw3a3oq43" path="res://old_scenes/BlueShip.tscn" id="2"]
+[ext_resource type="Script" path="res://old_scenes/PlatformBlue.gd" id="3"]
+[ext_resource type="Script" path="res://old_scenes/ObjectiveArea.gd" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(138.75, 79)
