@@ -1,9 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh4fnadfvkus8"]
+[gd_scene load_steps=5 format=3 uid="uid://bh4fnadfvkus8"]
 
 [ext_resource type="PackedScene" uid="uid://djwtymi72ofe1" path="res://src/levels/tile_map.tscn" id="1_rpq5o"]
+[ext_resource type="PackedScene" uid="uid://40pdw73bvqwx" path="res://src/objects/objective_area.tscn" id="2_oaqvg"]
+[ext_resource type="PackedScene" uid="uid://dqe587iq6jj2w" path="res://src/player/player_ship.tscn" id="3_7cx7x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwksq"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
 
 [node name="Level2" type="Node"]
 
 [node name="GameWorld" type="Node2D" parent="."]
 
 [node name="TileMap" parent="GameWorld" instance=ExtResource("1_rpq5o")]
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 10, 0, 0, 9, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 0, 0, 196626, 0, 0, 262162, 0, 0, 327698, 0, 0, 393234, 0, 0, 458770, 0, 0, 524306, 0, 0, 589842, 0, 0, 655378, 0, 0, 655377, 0, 0, 655376, 0, 0, 655375, 0, 0, 655374, 0, 0, 655373, 0, 0, 655372, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 589829, 1, 1610612736, 524293, 1, 1610612736, 458757, 1, 1610612736, 393221, 1, 1610612736, 327685, 1, 1610612736, 262149, 1, 1610612736, 196613, 1, 1610612736, 196614, 1, 1342177280, 262150, 1, 1342177280, 327686, 1, 1342177280, 393222, 1, 1342177280, 458758, 1, 1342177280, 524294, 1, 1342177280, 589830, 1, 1342177280, 65545, 1, 805306368, 65546, 1, 805306368, 65547, 1, 805306368, 65548, 1, 805306368)
+
+[node name="PlayerShip" parent="GameWorld" instance=ExtResource("3_7cx7x")]
+position = Vector2(193, 649)
+
+[node name="ObjectiveArea" parent="GameWorld" instance=ExtResource("2_oaqvg")]
+position = Vector2(1172, 614)
+
+[node name="Label3" type="Label" parent="GameWorld"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.0
+offset_top = 227.0
+offset_right = 1003.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPIKES!!!"
+label_settings = SubResource("LabelSettings_bwksq")
+horizontal_alignment = 1
